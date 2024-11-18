@@ -2,8 +2,16 @@ GET http://localhost:3000
 
 ### CREATE NEW SONGS REQUEST
 POST http://localhost:3000/songs
+Content-Type: application/json
 
-### SEND FETCH SONGS REQUEST
+{
+    "title": "lasting lover",
+    "artists": ["sigla"],
+    "releasedDate" : "2022-09-29",
+    "duration" :"02:34"
+}
+
+### FETCH ALL SONGS REQUEST
 GET http://localhost:3000/songs
 
 ### FIND SONGS REQUEST
