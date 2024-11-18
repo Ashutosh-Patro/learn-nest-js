@@ -1,3 +1,4 @@
+### DEFAULT SERVER URL
 GET http://localhost:3000
 
 ### CREATE NEW SONGS REQUEST
