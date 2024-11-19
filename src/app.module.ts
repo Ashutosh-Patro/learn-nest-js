@@ -1,9 +1,4 @@
-import {
-  MiddlewareConsumer,
-  Module,
-  NestModule,
-  RequestMethod,
-} from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { SongsModule } from './songs/songs.module';
@@ -33,15 +28,15 @@ const proConfig = { port: 4000 };
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    // Method 1 to use LoggerMiddleware
+    // Method 1 to use LoggerMiddleware for all request types
     // consumer.apply(LoggerMiddleware).forRoutes('songs');
 
     // Method 2 to use LoggerMiddleware
     // consumer
     //   .apply(LoggerMiddleware)
-    //   .forRoutes({ path: 'songs', method: RequestMethod.POST });
+    //   .forRoutes({ path: 'songs', method: RequestMethod.POST }); // This just states that the logger middleware will only work when a POST request is called.
 
-    // Method 3 to use LoggerMiddleware
+    // Method 3 to use LoggerMiddleware for all request types
     consumer.apply(LoggerMiddleware).forRoutes(SongsController);
   }
 }
